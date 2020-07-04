@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agency - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+		    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+	
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script>
+	$(document).ready(function(){  
+		$("#logout").click(function(){
+		alert("Loading now, please wait.");
+		localStorage.removeItem("name");
+		localStorage.removeItem("favlist");
+		localStorage.clear();
+		window.location.href = "http://127.0.0.1:9999/index";
+		})
+		$("#member2").click(function(){
+		window.location.href = "http://127.0.0.1:9999/member2";
+		})
+		$("#member2_2").click(function(){
+		window.location.href = "http://127.0.0.1:9999/member2";
+		})
+		$("#myfavourlist").click(function(){
+		window.location.href = "http://127.0.0.1:9999/myfavourlist";
+		})
+		$("#search").click(function(){
+		window.location.href = "http://127.0.0.1:9999/member";
+		})
+		
+		$("#getapi").click(function(){
+		window.location.href = "http://127.0.0.1:9999/getapi";
+		})
+
+});
+</script>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+	<button id="myfavourlist" class="w3-bar-item w3-button">My favourite list</button>
+	<button id="search" class="w3-bar-item w3-button">Search Car</button>
+	<button id="logout" class="w3-bar-item w3-button">logout </button>
+    </div>
+  </div>
+</div>
+<!-- Header -->
+<header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+            </div>
+</header>
+									<p id="prop1">
+									<div id="block_container">
+									<div id="bloc1">
+									<button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" id="getapi">Get Your favourite list API</button>
+									</div></div>
+									</p>
+	
+	
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="assets/mail/jqBootstrapValidation.js"></script>
+        <script src="assets/mail/contact_me.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
