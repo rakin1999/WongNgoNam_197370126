@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agency - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+		    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+	
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+	<button href="myfavourlist.html" id="myfavourlist" class="w3-bar-item w3-button">My favourite list</button>
+	<button id="logout" class="w3-bar-item w3-button">logout </button>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            </div>
+</header>
+
+<script>
+$(document).ready(function(){   
+var jsonData={"image":"passdata"};
+ $.ajax({
+	url: "http://127.0.0.1:9999/passdata", 
+				dataType: 'JSON',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	})
+	});
+	
+</script>
+
+<script>
+	$("#myfavourlist").click(function(){
+		window.location.href = "http://127.0.0.1:9999/myfavourlist";
+		})
+	$("#logout").click(function(){
+		alert("Loading now, please wait.");
+		localStorage.removeItem("name");
+		localStorage.removeItem("favlist");
+		window.location.href = "http://127.0.0.1:9999/index";
+		})
+		$("#member2").click(function(){
+		window.location.href = "http://127.0.0.1:9999/member2";
+		})
+		
+
+});
+</script>
+
+<script>
+$(document).ready(function(){   
+	 var favlist = [];
+	 var favitem = 0;
+	 
+	 var favlist2 = [];
+	 var favitem2 = 0;
+	 
+	 $("#addedit1").click(function(){
+	 favlist[favitem] = $("#favorite_list1").val();
+	 favitem +=1;
+	 alert(JSON.stringify(favlist));
+	 localStorage.setItem("favlist", JSON.stringify(favlist));
+	 })	 
+	 
+	 
+	$("#savecar").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist");
+		
+	var myfavdata="&Email="+tempName+"&favlist="+tempfavlist;
+	
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/member",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+		alert("Favourite_List is lose");
+		console.log(textStatus);
+		}
+	});
+	});
+
+	$("#save").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist");
+		
+	var myfavdata="&Email="+tempName+"&favlist="+tempfavlist;
+	
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/member",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+		alert("Favourite_List is lose");
+		console.log(textStatus);
+		}
+	});
+	});
+		$("#show").click(function(){
+        var tempName;
+		tempName=localStorage.getItem("name");
+		
+		var name="&Email="+tempName;
+        
+        $.ajax({
+          url: "http://127.0.0.1:9999/readfavourlist",          
+          type: "POST",
+          data: name ,
+          success: function (result) {
+            result = JSON.parse(result);
+            $("#favlist").empty();
+            $.each(result, function(i,fav){
+			  var favourite = fav.favlist;
+              favlist2[favitem2] = favourite;
+			  favitem+=1;
+			  $("#favlist").append('<div class="container"><div class="row"><div class="col-1"></div><font color="Orange"><p>'+ favourite +'</p></font></div></div>');
+			});
+            console.log(result);
+            //alert(result);
+          },
+          error: function(result){
+              console.log(result);
+            }
+        });
+        
+	});
+	 $("#Delete").click(function(){
+		var tempName,tempdelfav;
+		tempName = localStorage.getItem("name");
+		tempdelfav = $("#favorite_list").val();
+		var delData="&Email="+tempName+"&favlist="+tempdelfav;
+
+        $.ajax({
+           url: "http://127.0.0.1:9999/removefavourlist",          
+           type: "POST",
+           data: delData ,
+           success: function (result) {
+			 if (result == "OK"){
+			 alert("the data was delete");
+            }
+            else{
+             alert(result);
+             console.log(result);
+			 }
+           },
+           error: function(result){
+               console.log(result);
+             }
+         });
+});
+	
+	$("#addfav").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");		
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+});
+
+$("#addfav2").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar2", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+});
+
+$("#addfav3").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar3", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+});
+
+$("#addfav4").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar4", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+});
+
+$("#addfav5").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar5", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+});
+$("#addfav6").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar6", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+});
+	
+
+
+	$("#editfav1").click(function(){
+		window.location.href = "http://127.0.0.1:9999/edit1";
+		})
+	$("#logout").click(function(){
+		alert("Loading now, please wait.");
+		localStorage.removeItem("name");
+		localStorage.removeItem("favlist");
+		window.location.href = "http://127.0.0.1:9999/index";
+		})
+		$("#member2").click(function(){
+		window.location.href = "http://127.0.0.1:9999/member2";
+		})
+		$("#myfavourlist").click(function(){
+		window.location.href = "http://127.0.0.1:9999/myfavourlist";
+		})
+
+ $("#save_edit1").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist");
+		
+	var myfavdata="&Email="+tempName+"&favlist="+tempfavlist;
+	
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+		alert("Favourite_List is lose");
+		console.log(textStatus);
+		}
+	});
+});
+});
+</script>
+
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Portfolio</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+              
+		<!-- Modal 11-->
+		
+		            <div class="modal-dialog">
+                <div class="modal-content">
+                   
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+								 <!-- Project Details Go Here-->
+								 <h2 class="text-uppercase">LaFerrari</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+									<p>LaFerrari, project name F150 and unofficially referred to as the Ferrari LaFerrari is a limited production hybrid sports car built by Italian automotive manufacturer Ferrari. LaFerrari means The Ferrari in Italian and some other Romance languages, in the sense that it is the definitive Ferrari. The sports car is the last Ferrari model with a mid-mounted 12-cylinder engine.</p>
+								<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list1" rows="10" cols="20"></textarea><br/></div>
+									<button id="addedit1">Add Edit</button>
+									<button class="save" id="save_edit1">Save Edit</button>
+									</div>
+									
+									<ul class="list-inline">
+                                        <li>price:$22500000</li>
+                                        <li>color:blue,dark,yellow</li>
+                                        <li>Category: Illustration</li>
+                                    </ul>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="assets/mail/jqBootstrapValidation.js"></script>
+        <script src="assets/mail/contact_me.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+  
+
+<!-- End page content -->
+</div>
+
+
+
+</body>
+</html>

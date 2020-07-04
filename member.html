@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS Template</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agency - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>  
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+		    <!-- Bootstrap Core CSS -->
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+		<link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+		<link href="css/stylish-portfolio.min.css" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+	
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		
+
+		<script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+	<div id="fb-root"></div>
+	<button id="api" class="w3-bar-item w3-button">Get API</button>
+	<button id="myfavourlist" class="w3-bar-item w3-button">My favourite list</button>
+	<button id="logout" class="w3-bar-item w3-button">logout </button>
+	
+    </div>
+  </div>
+</div>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_HK/sdk.js#xfbml=1&version=v7.0" nonce="BiVkiV79"></script>
+<!-- Header -->
+<header class="masthead">
+
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            </div>
+</header>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script>
+$(document).ready(function () {
+			$.ajax({
+                type: "POST",
+                url: "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=en",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                  
+				
+				var WTSname = result.WTS.name;
+				var code = result.WTS.code;
+				var actionCode = result.WTS.actionCode;
+				var issueTime = result.WTS.issueTime;
+				
+				
+				document.getElementById("WTS1").innerHTML = WTSname + " " + code + "  " + actionCode ;
+				document.getElementById("WTS2").innerHTML = issueTime;
+				
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                }
+            });
+     
+     
+       
+            $.ajax({
+                type: "POST",
+                url: "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                  
+				
+				var today = result.soilTemp[0].recordTime;
+				var temp = result.soilTemp[0].value + "°C";
+				var place = result.soilTemp[0].place;
+				document.getElementById("place").innerHTML = "Place :" + place;
+				document.getElementById("temp").innerHTML = "Today temperature :" + temp;
+				document.getElementById("day").innerHTML = "Time : " + today;
+				
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                }
+            });
+        
+ 
+  
+  
+});
+
+</script>
+
+
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    display: 'popup',
+    method: 'share',
+    href: 'https://developers.facebook.com/docs/',
+  }, function(response){});
+}
+</script>
+
+<script>
+$(document).ready(function () {
+        if (validate.length == 0) {
+            $.ajax({
+                type: "POST",
+                url: "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                  
+				alert(JSON.stringify(result));
+				result = JSON.stringify(result);
+				document.getElementById("api1").innerHTML = result; 
+  
+				//var o=JSON.parse(result);
+				alert(result.generalSituation);
+           
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                }
+            });
+        }
+ 
+  
+    $(document).ajaxStart(function () {
+        $("img").show();
+    });
+  
+    $(document).ajaxStop(function () {
+        $("img").hide();
+    });
+  
+    function Validate() {
+        var errorMessage = "";
+        if ($("#citySelect").val() == "Select") {
+            errorMessage += "► Select City";
+        }
+        return errorMessage;
+    }
+});
+</script>
+
+<script>
+$(document).ready(function(){   
+var jsonData={"about":"hi"};
+ $.ajax({
+	url: "http://127.0.0.1:9999/passdata", 
+				dataType: 'JSON',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				var result = result.about;
+				var aboutid = "about";
+				document.getElementById(about).innerHTML=result;
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	})
+});
+	
+</script>
+
+
+<script>
+	$(document).ready(function(){   
+	 var favlist = [];
+	 var favitem = 0;
+	 
+	 var favlist2 = [];
+	 var favitem2 = 0;
+	 
+	 
+	 var favlist3 = [];
+	 var favitem3 = 0;
+	 
+	 var favlist4 = [];
+	 var favitem4 = 0;
+	 
+	 var favlist5 = [];
+	 var favitem5 = 0;
+	 
+	 var favlist6 = [];
+	 var favitem6 = 0;
+	 
+	 var favlist11 = [];
+	 var favitem11 = 0;
+	 
+	 var favlist12 = [];
+	 var favitem12 = 0;
+	 
+	 var favlist13 = [];
+	 var favitem13 = 0;
+	 
+	 var favlist14 = [];
+	 var favitem14 = 0;
+	 
+	 var favlist15 = [];
+	 var favitem15 = 0;
+	 
+	 var favlist16 = [];
+	 var favitem16 = 0;
+
+	 
+	 $("#add").click(function(){
+	 favlist[favitem] = $("#favorite_list").val();
+	 favitem +=1;
+	 localStorage.setItem("favlist", JSON.stringify(favlist));
+	 })
+	 
+	 
+	// handle button clicks         
+  $('#buttonID').click(function() {
+		// make an ajax call
+		alert($('#formID').serialize());
+    $.ajax({
+            dataType: 'jsonp',
+            jsonpCallback: '_wrapper',
+            data: $('#formID').serialize(),
+            type: 'POST',
+            url: "http://127.0.0.1:9999/member",
+            success: handleButtonResponse,
+        });
+    });
+    function handleButtonResponse(data){
+      alert(data);
+      // parse the json string
+      var jsonObject = JSON.parse(data);
+      $('#reponseID').append( jsonObject.message );
+    }
+	
+	$("#addfav").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");		
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+	window.location.reload();
+});
+
+$("#addfav2").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar2", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+	window.location.reload();
+});
+
+$("#addfav3").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar3", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+	window.location.reload();
+});
+
+$("#addfav4").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar4", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+	window.location.reload();
+});
+
+$("#addfav5").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar5", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+	window.location.reload();
+});
+$("#addfav6").click(function(){
+		var tempName;
+		tempName=localStorage.getItem("name");
+		var name="&Email="+tempName;
+		//var jsonData={"name":tempName, "Data":addfavcar};
+		var jsonData={"user": name};
+		 $.ajax({
+				url: "http://127.0.0.1:9999/addfavcar6", 
+				dataType: 'jsonp',
+				type: 'POST',
+				data: JSON.stringify(jsonData),
+				success: function(result){
+				}, error: function (xhr, textStatus, errorThrown) {
+      		}
+	});
+	window.location.reload();
+});
+	
+	$("#savecar").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist");
+		
+	var myfavdata="&Email="+tempName+"&favlist="+tempfavlist;
+	
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/member",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+		alert("Favourite_List is lose");
+		console.log(textStatus);
+		}
+	});
+	});
+
+	$("#save").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist");
+		
+	var myfavdata="&Email="+tempName+"&favlist="+tempfavlist;
+	
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/member",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+		alert("Favourite_List is lose");
+		console.log(textStatus);
+		}
+	});
+});
+		$("#show").click(function(){
+        var tempName;
+		tempName=localStorage.getItem("name");
+		
+		var name="&Email="+tempName;
+        
+        $.ajax({
+          url: "http://127.0.0.1:9999/readfavourlist",          
+          type: "POST",
+          data: name ,
+          success: function (result) {
+            result = JSON.parse(result);
+            $("#favlist").empty();
+            $.each(result, function(i,fav){
+			  var favourite = fav.favlist;
+              favlist2[favitem2] = favourite;
+			  favitem+=1;
+			  $("#favlist").append('<div class="container"><div class="row"><div class="col-1"></div><font color="Orange"><p>'+ favourite +'</p></font></div></div>');
+			});
+            console.log(result);
+            //alert(result);
+          },
+          error: function(result){
+              console.log(result);
+            }
+        });
+        
+	});
+	 $("#Delete").click(function(){
+		var tempName,tempdelfav;
+		tempName = localStorage.getItem("name");
+		tempdelfav = $("#favorite_list").val();
+		var delData="&Email="+tempName+"&favlist="+tempdelfav;
+
+        $.ajax({
+           url: "http://127.0.0.1:9999/removefavourlist",          
+           type: "POST",
+           data: delData ,
+           success: function (result) {
+			 if (result == "OK"){
+			 alert("the data was delete");
+            }
+            else{
+             alert(result);
+             console.log(result);
+			 }
+           },
+           error: function(result){
+               console.log(result);
+             }
+         });
+		 
+});
+
+	$("#update").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist");
+		
+	var myfavdata="&Email="+tempName+"&favlist="+ tempfavlist;
+	
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist21",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was update to server!");
+		var result = result.about;
+		var aboutid = "about";
+		document.getElementById(about).innerHTML=result;
+		} else {
+		alert("The data wasnt update to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+	/*$("#editfav1").click(function(){
+		window.location.href = "http://127.0.0.1:9999/edit1";
+		}) */
+	
+		
+
+	
+	
+	$("#addedit1").click(function(){
+	 favlist[favitem] = $("#favorite_list1").val();
+	 favitem +=1;
+	 alert(JSON.stringify(favlist));
+	 localStorage.setItem("favlist", JSON.stringify(favlist));
+	 });
+	 
+	$("#save_edit1").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+		//alert("Favourite_List is lose");
+		//console.log(textStatus);
+		}
+	});
+});
+
+
+$("#addedit2").click(function(){
+	 favlist2[favitem2] = $("#favorite_list2").val();
+	 favitem2 +=1;
+	 alert(JSON.stringify(favlist2));
+	 localStorage.setItem("favlist2", JSON.stringify(favlist2));
+	 });
+	 
+	$("#save_edit2").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist2");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist2="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist2",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit3").click(function(){
+	 favlist3[favitem3] = $("#favorite_list3").val();
+	 favitem3 +=1;
+	 alert(JSON.stringify(favlist3));
+	 localStorage.setItem("favlist3", JSON.stringify(favlist3));
+	 });
+	 
+	$("#save_edit3").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist3");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist3="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist3",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit4").click(function(){
+	 favlist4[favitem4] = $("#favorite_list4").val();
+	 favitem4 +=1;
+	 alert(JSON.stringify(favlist4));
+	 localStorage.setItem("favlist4", JSON.stringify(favlist4));
+	 });
+	 
+	$("#save_edit4").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist4");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist4="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist4",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit5").click(function(){
+	 favlist5[favitem5] = $("#favorite_list5").val();
+	 favitem5 +=1;
+	 alert(JSON.stringify(favlist5));
+	 localStorage.setItem("favlist5", JSON.stringify(favlist5));
+	 });
+	 
+	$("#save_edit5").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist5");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist5="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist5",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit6").click(function(){
+	 favlist6[favitem6] = $("#favorite_list6").val();
+	 favitem6 +=1;
+	 alert(JSON.stringify(favlist6));
+	 localStorage.setItem("favlist6", JSON.stringify(favlist6));
+	 });
+	 
+	$("#save_edit6").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist6");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist6="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist6",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit11").click(function(){
+	 favlist11[favitem11] = $("#favorite_list11").val();
+	 favitem11 +=1;
+	 alert(JSON.stringify(favlist11));
+	 localStorage.setItem("favlist11", JSON.stringify(favlist11));
+	 });
+	 
+$("#save_edit11").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist11");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist11="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist11",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit12").click(function(){
+	 favlist12[favitem12] = $("#favorite_list12").val();
+	 favitem12 +=1;
+	 alert(JSON.stringify(favlist12));
+	 localStorage.setItem("favlist12", JSON.stringify(favlist12));
+	 });
+	 
+$("#save_edit12").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist12");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist12="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist12",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit13").click(function(){
+	 favlist13[favitem13] = $("#favorite_list13").val();
+	 favitem13 +=1;
+	 alert(JSON.stringify(favlist13));
+	 localStorage.setItem("favlist13", JSON.stringify(favlist13));
+	 });
+
+$("#save_edit13").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist13");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist13="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist13",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit14").click(function(){
+	 favlist14[favitem14] = $("#favorite_list14").val();
+	 favitem14 +=1;
+	 alert(JSON.stringify(favlist14));
+	 localStorage.setItem("favlist14", JSON.stringify(favlist14));
+	 });
+
+$("#save_edit14").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist14");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist14="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist14",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit15").click(function(){
+	 favlist15[favitem15] = $("#favorite_list15").val();
+	 favitem15 +=1;
+	 alert(JSON.stringify(favlist15));
+	 localStorage.setItem("favlist15", JSON.stringify(favlist15));
+	 });
+
+$("#save_edit15").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist15");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist15="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist15",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+$("#addedit16").click(function(){
+	 favlist16[favitem16] = $("#favorite_list16").val();
+	 favitem16 +=1;
+	 alert(JSON.stringify(favlist16));
+	 localStorage.setItem("favlist16", JSON.stringify(favlist16));
+	 });
+
+$("#save_edit16").click(function(){
+	
+	var tempName, tempfavlist;
+	tempName=localStorage.getItem("name");
+	tempfavlist=localStorage.getItem("favlist16");
+		
+	var myfavdata="&Email="+tempName+"\"}" + "&favlist16="+tempfavlist;
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist16",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+	//	alert("Favourite_List is lose");
+	//	console.log(textStatus);
+		}
+	});
+});
+
+		
+
+
+$("#logout").click(function(){
+		alert("Loading now, please wait.");
+		localStorage.removeItem("name");
+		localStorage.removeItem("favlist");
+		localStorage.clear();
+		window.location.href = "http://127.0.0.1:9999/index";
+		})
+		$("#member2").click(function(){
+		window.location.href = "http://127.0.0.1:9999/member2";
+		})
+		$("#member2_2").click(function(){
+		window.location.href = "http://127.0.0.1:9999/member2";
+		})
+		$("#myfavourlist").click(function(){
+		window.location.href = "http://127.0.0.1:9999/myfavourlist";
+		})
+		$("#api").click(function(){
+		window.location.href = "http://127.0.0.1:9999/myapi";
+		})
+
+});
+</script>
+<script>
+	/*$(document).ready(function(){   
+	 var favlist3 = [];
+	 var favitem3 = 0;
+	 
+	 var favlist4 = [];
+	 var favitem4 = 0;
+	 
+	 $("#addedit1").click(function(){
+	 favlist3[favitem3] = $("#favorite_list1").val();
+	 favitem3 +=1;
+	 alert(JSON.stringify(favlist3));
+	 localStorage.setItem("favlist3", JSON.stringify(favlist3));
+	 })	 
+	
+	 $("#save_edit1").click(function(){
+	
+	var tempName, tempfavlist1;
+	tempName=localStorage.getItem("name");
+	tempfavlist1=localStorage.getItem("favlist3");
+		
+	var myfavdata="&Email="+tempName+"&favlist="+tempfavlist1;
+	
+	$.ajax({
+	type: "POST",
+	data:  myfavdata ,
+	url: "http://127.0.0.1:9999/editfavlist",
+	success: function (result) {
+		alert(result);
+		if (result == "OK") {
+		alert("The data was sent to server!");
+		} else {
+		alert("The data wasnt sent to server");
+		}
+		}, error: function (xhr, textStatus, errorThrown) {
+		alert("Favourite_List is lose");
+		console.log(textStatus);
+		}
+	});
+});*/
+</script>
+<!-- Sidebar/menu 
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+ <h3 class="w3-padding-64"><b>My Favourite Car</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#portfolioModal11" id="editfav1" class="btn btn-primary" type="button">Edit LaFerrari description</a>
+	<p>
+	<p>
+    <a href="#portfolioModal12" id="editfav2" class="btn btn-primary" type="button">Edit Veneno description</a>
+	<p>
+    <a href="#portfolioModal13" id="editfav3" class="btn btn-primary" type="button">Edit McLaren P1 description</a>
+	<p>
+    <a href="#portfolioModal14" id="editfav4" class="btn btn-primary" type="button">Edit Apollo Intensa Emozione description</a>
+	<p>
+    <a href="#portfolioModal15" id="editfav5" class="btn btn-primary" type="button">Edit Zonda description</a>
+	<p>
+	<a href="#portfolioModal16" id="editfav6" class="btn btn-primary" type="button">Edit Bugatti Veyron description</a>
+  </div>
+</nav> -->
+
+<!-- Page content -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0" nonce="i4qwhkZu"></script>
+<div class="w3-content w3-padding" style="max-width:1564px">
+<div id="api1"></div>
+				<table style="width:100%" id="myTable">
+				<img class="img-fluid" src="assets/img/FreeWeatherVectorIcons.png" width="10%" alt="" />
+				<tr><td id="WTS1"></td></tr>
+				<tr><td id="WTS2"></td></tr>
+				<tr><td id="place"></td></tr>
+				<tr><td id="day"></td></tr>
+				<tr><td id="temp"></td>	</tr>
+				</table>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+		
+            <div class="container">
+			<div id="fb-root"></div>
+<div class="fb-share-button" data-href="http://127.0.0.1:9999/member" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A9999%2Fmember&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+<div class="fb-like" data-href="http://127.0.0.1:9999/member" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="false"></div>
+                <div class="text-center">
+				
+                    <h2 class="section-heading text-uppercase">Portfolio</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+				
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1" 
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt=""
+                            /></a>
+							<div id="block_container">
+							<div id="bloc1"><button id="addfav" class="btn btn-primary" type="button">Add to my favorite list</button></div> 
+							<div class="portfolio-item" id="bloc2"><a href="#portfolioModal11" id="editfav1" class="btn btn-primary" data-toggle="modal" >Edit description</a></div> 
+							</div> 
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">LaFerrari</div>
+                                <div class="portfolio-caption-subheading text-muted">$22500000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt=""
+                            /></a>
+							<div id="block_container">
+							<div id="bloc1"><button id="addfav2" class="btn btn-primary" type="button">Add to my favorite list</button></div> 
+							<div class="portfolio-item" id="bloc2"><a href="#portfolioModal12" id="editfav2" class="btn btn-primary" data-toggle="modal" >Edit description</a></div>
+							</div> 
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Veneno</div>
+                                <div class="portfolio-caption-subheading text-muted">$45000000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt=""
+                            /></a>
+							<div id="block_container">
+							<div id="bloc1"><button id="addfav3" class="btn btn-primary" type="button">Add to my favorite list</button></div>
+							<div class="portfolio-item" id="bloc2"><a href="#portfolioModal13" id="editfav3" class="btn btn-primary" data-toggle="modal" >Edit description</a></div>
+							</div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">McLaren P1</div>
+                                <div class="portfolio-caption-subheading text-muted">$12600000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt=""
+                            /></a>
+							<div id="block_container">
+							<div id="bloc1"><button id="addfav4" class="btn btn-primary" type="button">Add to my favorite list</button></div>
+							<div class="portfolio-item" id="bloc2"><a href="#portfolioModal14" id="editfav4" class="btn btn-primary" data-toggle="modal" >Edit description</a></div>
+							</div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Apollo Intensa Emozione</div>
+                                <div class="portfolio-caption-subheading text-muted">$13800000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt=""
+                            /></a>
+							<div id="block_container">
+							<div id="bloc1"><button id="addfav5" class="btn btn-primary" type="button">Add to my favorite list</button></div>
+							<div class="portfolio-item" id="bloc2"><a href="#portfolioModal15" id="editfav5" class="btn btn-primary" data-toggle="modal" >Edit description</a></div>
+							</div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Zonda</div>
+                                <div class="portfolio-caption-subheading text-muted">$12000000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt=""
+                            /></a>
+							<div id="block_container">
+							<div id="bloc1"><button id="addfav6" class="btn btn-primary" type="button">Add to my favorite list</button></div>
+							<div class="portfolio-item" id="bloc2"><a href="#portfolioModal16" id="editfav6" class="btn btn-primary" data-toggle="modal" >Edit description</a></div>
+							</div>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Bugatti Veyron</div>
+                                <div class="portfolio-caption-subheading text-muted">$25000000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#member.html" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#member2.html" id="member2" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#member2.html" id="member2_2" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+  <div class="w3-center w3-padding-32">
+  <div class="fb-video" data-href="https://www.facebook.com/CarGuideMagazine/videos/455115681826089"  data-show-text="false" data-width="500"><blockquote cite="https://developers.facebook.com/CarGuideMagazine/videos/455115681826089/" class="fb-xfbml-parse-ignore"><a href="https://developers.facebook.com/CarGuideMagazine/videos/455115681826089/">Porsche第一台純電動跑車Taycan turbo S</a><p>Porsche第一台純電動跑車Taycan turbo S
+保有家族系列外觀設計
+800伏純電力系統
+感應式充電座設計
+影片後面還有方程式賽車介紹唷!
+高清版 https://youtu.be/QpJqOlJuoZ0</p>由<a href="https://www.facebook.com/CarGuideMagazine/">汽車購買指南</a>發佈於 2020年1月2日 星期四</blockquote></div>
+  </div>
+  <div class="w3-center w3-padding-32">
+  <div class="fb-comments" data-href="http://127.0.0.1:9999/index" data-numposts="100" data-width=""></div></div>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0" nonce="mu8iEpiy"></script>
+
+  </section>
+  <div class="w3-center w3-padding-32">
+									<p id="prop1">
+									<div id="block_container">
+									<div id="bloc1">
+									<p><textarea name="body" rows="5" cols="40" id="favorite_list"></textarea></p>
+									
+									<button class="btn btn-primary" id="add">Add Comment</button>
+									<button class="btn btn-primary" id="save">Save Comment</button>
+									<!--<button class="btn btn-primary"  id="update">Update Comment</button>-->
+									</div></div>
+									</p>
+	 </div>							
+							
+									
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" visibility="hidden"></h3>
+    <p id="about"></p>
+  </div>
+
+  
+        <!-- Portfolio Modals--><!-- Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">LaFerrari</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+                                    <p>LaFerrari, project name F150 and unofficially referred to as the Ferrari LaFerrari is a limited production hybrid sports car built by Italian automotive manufacturer Ferrari. LaFerrari means The Ferrari in Italian and some other Romance languages, in the sense that it is the definitive Ferrari. The sports car is the last Ferrari model with a mid-mounted 12-cylinder engine.</p>
+                                    <ul class="list-inline">
+                                        <li>price:$22500000</li>
+                                        <li>color:blue,dark,yellow</li>
+                                        <li>Category: Illustration</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Veneno</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                                    <p>The Lamborghini Veneno Spanish pronunciation is a limited-production high-performance sports car manufactured by Italian automobile manufacturer Lamborghini. Based on the Lamborghini Aventador, the Veneno was developed to celebrate Lamborghini's 50th anniversary. It was introduced at the 2013 Geneva Motor Show. When introduced, it had a price of US$4,000,000, making it one of the most expensive production cars in the world. The prototype, Car Zero, is finished in Grigio Telesto (medium grey) and includes an Italian flag vinyl on both sides of the car.</p>
+                                    <ul class="list-inline">
+                                        <li>price:$45000000</li>
+                                        <li>color:white,dark,yellow</li>
+                                        <li>Category: Graphic Design</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 3-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">McLaren P1</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
+                                    <p>The McLaren P1 is a limited-production plug-in hybrid sports car produced by British automobile manufacturer McLaren Automotive. Debuted at the 2012 Paris Motor Show, sales of the P1 began in the United Kingdom in October 2013 and all 375 units were sold out by November. Production ended in early December 2015. The United States accounted for 34% of the units and Europe for 26%.</p>
+                                    <ul class="list-inline">
+                                        <li>price:$12600000</li>
+                                        <li>color:blue,dark,yellow</li>
+                                        <li>Category: Identity</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 4-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Apollo Intensa Emozione</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                                    <p>The Apollo Intensa Emozione is a mid-engine sports car manufactured by German automobile manufacturer Apollo Automobil GmbH, designed by their Chief Designer, Joe Wong. The car is sometimes referred to as the IE, which stands for Intensa Emozione. The name itself means 'intense emotion' in Italian. This is the first vehicle made by Apollo since the Gumpert Apollo that went into production 14 years before.</p>
+                                    <ul class="list-inline">
+                                        <li>price:$13800000</li>
+                                        <li>color:red,dark,yellow</li>
+                                        <li>Category: Branding</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 5-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Zonda</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                                    <p>The Pagani Zonda is a mid-engine sports car produced by the Italian sports car manufacturer Pagani. It debuted at the 1999 Geneva Motor Show. By 2018, a total of 140 cars had been built, including development mules. Both 2-door coupé and roadster variants have been produced along with a third new variant being the barchetta. Construction is mainly of carbon fibre.</p>
+                                    <ul class="list-inline">
+                                        <li>price:$12000000</li>
+                                        <li>color:blue,dark,yellow</li>
+                                        <li>Category: Website Design</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 6-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Bugatti Veyron</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" />
+                                    <p>The Bugatti Veyron EB 16.4 is a mid-engine sports car, designed and developed in Germany by the Volkswagen Group and manufactured in Molsheim, France, by French automobile manufacturer Bugatti. It was named after the racing driver Pierre Veyron. The original version has a top speed of 407 km/h (253 mph). It was named Car of the Decade and best car award (2000–2009) by the BBC television program Top Gear. The standard Bugatti Veyron also won Top Gear's Best Car Driven All Year award in 2005.</p>
+                                    <ul class="list-inline">
+                                        <li>price:$25000000</li>
+                                        <li>color:blue,pink,yellow</li>
+                                        <li>Category: Photography</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- Modal 11-->
+		<div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" role="dialog">
+		            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+								 <!-- Project Details Go Here-->
+								 <h2 class="text-uppercase">LaFerrari</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+									<p>LaFerrari, project name F150 and unofficially referred to as the Ferrari LaFerrari is a limited production hybrid sports car built by Italian automotive manufacturer Ferrari. LaFerrari means The Ferrari in Italian and some other Romance languages, in the sense that it is the definitive Ferrari. The sports car is the last Ferrari model with a mid-mounted 12-cylinder engine.</p>
+								<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list1" rows="10" cols="60"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit1">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit1">Save Edit</button>
+									</div>
+									
+									<ul class="list-inline">
+                                        <li>price:$22500000</li>
+                                        <li>color:blue,dark,yellow</li>
+								<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list11"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit11">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit11">Save Edit</button>
+									</div>
+                                        <li>Category: Illustration</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<!-- Modal 12-->
+	 <div class="portfolio-modal modal fade" id="portfolioModal12" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Veneno</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                                    <p>The Lamborghini Veneno Spanish pronunciation is a limited-production high-performance sports car manufactured by Italian automobile manufacturer Lamborghini. Based on the Lamborghini Aventador, the Veneno was developed to celebrate Lamborghini's 50th anniversary. It was introduced at the 2013 Geneva Motor Show. When introduced, it had a price of US$4,000,000, making it one of the most expensive production cars in the world. The prototype, Car Zero, is finished in Grigio Telesto (medium grey) and includes an Italian flag vinyl on both sides of the car.</p>
+                                    <div id="block_container">
+									<div id="bloc1">	<textarea name="body"  id="favorite_list2" rows="10" cols="60"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit2">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit2">Save Edit</button>
+									</div>
+								   <ul class="list-inline">
+                                        <li>price:$45000000</li>
+                                        <li>color:white,dark,yellow</li>
+										<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list12"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit12">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit12">Save Edit</button>
+									</div>
+                                        <li>Category: Graphic Design</li>
+										
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+		<!-- Modal 13-->
+        <div class="portfolio-modal modal fade" id="portfolioModal13" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">McLaren P1</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
+                                    <p>The McLaren P1 is a limited-production plug-in hybrid sports car produced by British automobile manufacturer McLaren Automotive. Debuted at the 2012 Paris Motor Show, sales of the P1 began in the United Kingdom in October 2013 and all 375 units were sold out by November. Production ended in early December 2015. The United States accounted for 34% of the units and Europe for 26%.</p>
+                                     <div id="block_container">
+									<div id="bloc1">	<textarea name="body"  id="favorite_list3" rows="10" cols="60"></textarea><br/></div>
+									<button id="addedit3">Add Edit</button>
+									<button class="save" id="save_edit3">Save Edit</button>
+									</div>
+								   <ul class="list-inline">
+                                        <li>price:$12600000</li>
+                                        <li>color:blue,dark,yellow</li>
+										<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list13"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit13">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit13">Save Edit</button>
+									</div>
+                                        <li>Category: Identity</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- Modal 4-->
+        <div class="portfolio-modal modal fade" id="portfolioModal14" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Apollo Intensa Emozione</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                                    <p>The Apollo Intensa Emozione is a mid-engine sports car manufactured by German automobile manufacturer Apollo Automobil GmbH, designed by their Chief Designer, Joe Wong. The car is sometimes referred to as the IE, which stands for Intensa Emozione. The name itself means 'intense emotion' in Italian. This is the first vehicle made by Apollo since the Gumpert Apollo that went into production 14 years before.</p>
+                                    <div id="block_container">
+									<div id="bloc1">	<textarea name="body"  id="favorite_list4" rows="10" cols="60"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit4">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit4">Save Edit</button>
+									</div>
+								    <ul class="list-inline">
+                                        <li>price:$13800000</li>
+                                        <li>color:red,dark,yellow</li>
+										<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list14"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit14">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit14">Save Edit</button>
+									</div>
+                                        <li>Category: Branding</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		 <!-- Modal 15-->
+        <div class="portfolio-modal modal fade" id="portfolioModal15" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Zonda</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                                    <p>The Pagani Zonda is a mid-engine sports car produced by the Italian sports car manufacturer Pagani. It debuted at the 1999 Geneva Motor Show. By 2018, a total of 140 cars had been built, including development mules. Both 2-door coupé and roadster variants have been produced along with a third new variant being the barchetta. Construction is mainly of carbon fibre.</p>
+                                    <div id="block_container">
+									<div id="bloc1">	<textarea name="body"  id="favorite_list5" rows="10" cols="60"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit5">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit5">Save Edit</button>
+									</div>
+								   <ul class="list-inline">
+                                        <li>price:$12000000</li>
+                                        <li>color:blue,dark,yellow</li>
+										<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list15"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit15">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit15">Save Edit</button>
+									</div>
+                                        <li>Category: Website Design</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		 <!-- Modal 16-->
+        <div class="portfolio-modal modal fade" id="portfolioModal16" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/closeicon.png"  width="50%" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Bugatti Veyron</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" />
+                                    <p>The Bugatti Veyron EB 16.4 is a mid-engine sports car, designed and developed in Germany by the Volkswagen Group and manufactured in Molsheim, France, by French automobile manufacturer Bugatti. It was named after the racing driver Pierre Veyron. The original version has a top speed of 407 km/h (253 mph). It was named Car of the Decade and best car award (2000–2009) by the BBC television program Top Gear. The standard Bugatti Veyron also won Top Gear's Best Car Driven All Year award in 2005.</p>
+                                    <div id="block_container">
+									<div id="bloc1">	<textarea name="body"  id="favorite_list6" rows="10" cols="60"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit6">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit6">Save Edit</button>
+									</div>
+									<ul class="list-inline">
+                                        <li>price:$25000000</li>
+                                        <li>color:blue,pink,yellow</li>
+										<div id="block_container">
+								<div id="bloc1">	<textarea name="body"  id="favorite_list16"></textarea><br/></div>
+									<button class="btn btn-primary" id="addedit16">Add Edit</button>
+									<button class="btn btn-primary" id="save_edit16">Save Edit</button>
+									</div>
+                                        <li>Category: Photography</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="assets/mail/jqBootstrapValidation.js"></script>
+        <script src="assets/mail/contact_me.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+	
+	
+		<div class="w3-center w3-padding-32">
+		<div id='map' style='width: 400px; height: 300px;'></div>
+		</div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0" nonce="KOZ6Cn5k"></script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicmFraW4xOTk5IiwiYSI6ImNrYzY0MHhwNDBqZnYzM3Q2YXp4b3BxMXgifQ.Cx4r0CtW7avIAKHxBA7heg';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-96, 37.8], // starting position
+zoom: 3 // starting zoom
+});
+ 
+// Add geolocate control to the map.
+map.addControl(
+new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+trackUserLocation: true
+})
+);
+</script>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-32" id="contact">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+    <p>Lets get in touch and talk about your next project.</p>
+    <form action="/action_page.php" target="_blank">
+      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+      <button class="w3-button w3-black w3-section" type="submit">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+      </button>
+    </form>
+  </div>
+  
+  
+  
+
+<!-- End page content -->
+</div>
+
+
+
+</body>
+</html>
